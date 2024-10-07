@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class NotificationModel {
+class NotificationModel extends Equatable{
   final String image;
   final String title;
   final String body;
@@ -16,13 +17,17 @@ class NotificationModel {
   
   factory NotificationModel.fromJson(Map<String, dynamic> notification){
   return NotificationModel(
-    image: notification["image"], 
-    title: notification["title"], 
-    body: notification["body"],
-    timeStamp: notification["timestamp"],
+    image: notification["image"] ?? '', 
+    title: notification["title"] ?? '', 
+    body: notification["body"] ?? '',
+    timeStamp: notification["timestamp"] ?? '',
      
     );
 }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [image , title , body , timeStamp];
 }
 
 
